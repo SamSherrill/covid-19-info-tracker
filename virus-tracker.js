@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("ready!");
 
   // var countryCode = [
   //   "AF",
@@ -148,7 +147,6 @@ $(document).ready(function() {
       var timelineData = data.timelineitems["0"]; 
       var x = []; 
       var y = []; 
-      // var ength = keys.length; 
       for (i=0; i<57; i++) {
         var keys = Object.keys(timelineData)
         x += keys[i] + " "; 
