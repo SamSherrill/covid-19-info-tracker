@@ -1,0 +1,9 @@
+.hero-image {
+  background-image: url(https://www.elsevier.com/__data/assets/image/0012/974739/coronavirus-image-iStock-628925532-full-width-wide.jpg);
+  height: 200px;
+  background-repeat: no-repeat;
+}
+
+.h1 {
+  text-align: center;
+}
