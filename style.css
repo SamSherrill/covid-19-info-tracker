@@ -10,4 +10,10 @@ h1, h3 {
 
 .info-box {
   box-sizing: border-box;
-}
+/* }
+footer {
+  display: block;
+  background-color: gray;
+  padding-bottom: 0%;
+  padding-top: 12px;
+} */
