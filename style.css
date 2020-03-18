@@ -4,6 +4,10 @@
   background-repeat: no-repeat;
 }
 
-.h1 {
+h1, h3 {
   text-align: center;
+}
+
+.info-box {
+  box-sizing: border-box;
 }
