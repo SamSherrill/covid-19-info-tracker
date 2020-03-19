@@ -13,10 +13,7 @@ var queryURLGlobal =
   '&api-key=R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M';
 
 function getKeyword(index = 0) {
-  console.log(index, 'index');
-  console.log(keyWord[index]);
   var updatedURL = buildQueryURL(keyWord[index]);
-  console.log(updatedURL);
   displayData(updatedURL);
 }
 
@@ -29,12 +26,10 @@ function buildQueryURL(topic = '') {
 }
 
 function displayData(queryURL = selectedKeyword) {
-  console.log(queryURL);
   $.ajax({
     url: queryURL,
     method: 'GET'
   }).then(function(response) {
-    console.log(response);
     $('#article-space').html('');
     for (i = 0; i < 3; i++) {
       // will need to empty
@@ -52,10 +47,8 @@ function displayData(queryURL = selectedKeyword) {
     }
   });
 }
-console.log(selectedKeyword);
 
 $(document).ready(function() {
-  console.log('ready!');
 
   var queryURL =
     'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
