@@ -8,27 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <script src="https://kit.fontawesome.com/39e5edea6f.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=News+Cycle&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
 <body>
-    <header class="w3-container hero-image w3-center w3-padding-48 w3-text-white">
-        <h1>Welcome to the Coronavirus Information Tracker</h1>
+    <header class="w3-container hero-image w3-padding-48">
+        <h2 class="header-color">Coronavirus Information Tracker</h2>
+        <p id="today"class="date-color"></p>
     </header>
 
     <section class="w3-container">
+        <section id="main">
         <div class="w3-row-padding">
             <div class="w3-half info-box" id="news-block">
-                <h3 class="w3-border w3-margin">NEWS</h3>
-                <hr>
+                <h3 class="w3-border w3-margin text-color">News Stories</h3>
+                <!-- <hr> -->
                 <!-- This div is where we append articles pulled from the NYT API scraper -->
                 <div id="article-space"></div>
             </div>
 
             <div class="w3-half info-box">
-                <h3 class="w3-border w3-margin">Graphs and the Like</h3>
+                <h3 class="w3-border w3-margin text-color">Graph Data</h3>
             </div>
         </div>
     </section>
@@ -37,67 +39,50 @@
         <h1>Get Involved</h1>
         <p>Ways to Make a Difference. Donate Today!</p>
     </section>
-    <div class="w3-third">
-        <div class="w3-card w3-margin">
-            <img src="images/charity-1_1000x683.jpg" style="width:100%">
-            <div class="w3-container">
-                <p><a href="https://www.directrelief.org">Direct Relief</a></p>
+    <div class="bottom-margin">
+        <div class="w3-third">
+            <div class="w3-card w3-margin">
+                <img src="assets/images/charity-1_1000x683.jpg" style="width:100%">
+                <div class="w3-container">
+                    <p><a href="https://www.directrelief.org">Direct Relief</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="w3-third">
+            <div class="w3-card w3-margin">
+                <img src="assets/images/charity-2_1_1000x683.jpg" style="width:100%">
+                <div class="w3-container">
+                    <p><a href="https://disasterphilanthropy.org/disaster/2019-ncov-coronavirus/">Disaster Philanthropy</a>
+        
+        
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="w3-third bottom-margin">
+            <div class="w3-card w3-margin">
+                <img src="assets/images/charity-3_1000x683.jpg" style="width:100%">
+                <div class="w3-container">
+                    <p><a href="https://www.globalgiving.org/projects/coronavirus-relief-fund/">
+                            Global Giving</a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="w3-third">
-        <div class="w3-card w3-margin">
-            <img src="images/charity-2_1_1000x683.jpg" style="width:100%">
-            <div class="w3-container">
-                <p><a href="https://disasterphilanthropy.org/disaster/2019-ncov-coronavirus/">Disaster Philanthropy</a>
-              
-
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="w3-third">
-        <div class="w3-card w3-margin">
-            <img src="images/charity-3_1000x683.jpg" style="width:100%">
-            <div class="w3-container">
-                <p><a href="https://www.globalgiving.org/projects/coronavirus-relief-fund/">
-                        Global Giving</a>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- <section class="w3-container">
-        <div class="w3-third">
-            <h3>Charity 1</h3>
-        </div>
-        <div class="w3-third">
-            <h3>Charity 2</h3>
-        </div>
-        <div class="w3-third">
-            <h3>Charity 3</h3>
-        </div>
-    </section> -->
-
-
-
-    <!-- <footer>
-        <h3>Disclaimer:</h3>
-        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book.</p>
-        <p>CDC Web lin: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
-    </footer> -->
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-    <script src="assets/scripts/script.js"></script>
+    <script src="assets/scripts/scripts.js"></script>
     <script src="assets/scripts/nyt-scraper.js"></script>
     <script src="assets/scripts/virus-tracker.js"></script>
 
+    <div class="footer">
+        <p class="footer-text">Disclaimer:<br>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+        type and scrambled it to make a type specimen book.</p>
+        <p class="link-text"><a href="https://www.cdc.gov/">Centers for Disease Control and Prevention</a></p>
+    </div>
 </body>
-
 </html>
