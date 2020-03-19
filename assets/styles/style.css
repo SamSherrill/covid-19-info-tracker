@@ -2,18 +2,24 @@
   background-image: url(https://www.elsevier.com/__data/assets/image/0012/974739/coronavirus-image-iStock-628925532-full-width-wide.jpg);
   height: 200px;
   background-repeat: no-repeat;
+  background-color: black;
+  background-position-x: center;
 }
 
 h1, h3 {
   text-align: center;
 }
 
+#text-outline {
+  text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000; 
+}
+
 .info-box {
   box-sizing: border-box;
-/* }
-footer {
+}
+  footer {
   display: block;
   background-color: gray;
   padding-bottom: 0%;
   padding-top: 12px;
-} */
+}
