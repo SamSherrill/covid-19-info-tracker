@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Country List: USA, Iran, South Korea, Italy, UK, Germany, France, Spain, China, Japan
   var countryCode = [
     "US",
@@ -19,12 +19,12 @@ $(document).ready(function() {
 
   // Currently, all 3 of these are running on page load, and they print based upon run speed, not order
 
-  var globalStatsQuery = "https://thevirustracker.com/free-api?global=stats";
+  var globalStatsQuery = "http://thevirustracker.com/free-api?global=stats";
   $.ajax({
     url: globalStatsQuery,
     dataType: "json",
     method: "GET"
-  }).then(function(data) {
+  }).then(function (data) {
     console.log(data);
     console.log(data.stat);
     if (data.stat === "ok") {
@@ -35,12 +35,12 @@ $(document).ready(function() {
   });
 
   var countryStatsQuery =
-    "https://thevirustracker.com/free-api?countryTotal=" + countryCode[0];
+    "http://thevirustracker.com/free-api?countryTotal=" + countryCode[0];
   $.ajax({
     url: countryStatsQuery,
     dataType: "json",
     method: "GET"
-  }).then(function(data) {
+  }).then(function (data) {
     var countryInfo = data.countrydata[0];
     console.log(data);
     console.log("Name of this country: " + countryInfo.info.title);
@@ -49,11 +49,11 @@ $(document).ready(function() {
   });
 
   var queryURLTracker =
-    "https://thevirustracker.com/free-api?countryTimeline=" + countryCode[0];
+    "http://thevirustracker.com/free-api?countryTimeline=" + countryCode[0];
   $.ajax({
     url: queryURLTracker,
     dataType: "json",
-    success: function(data) {
+    success: function (data) {
       console.log(data.timelineitems["0"]);
       console.log(data);
       var timelineData = data.timelineitems["0"];
@@ -68,8 +68,44 @@ $(document).ready(function() {
       console.log(x);
       console.log(y);
       console.log(keys.length);
-      console.log(Array.isArray(x)); 
-      console.log(Array.isArray(y)); 
+      console.log(Array.isArray(x));
+      console.log(Array.isArray(y));
+    }
+  });
+
+  // The chart below is shown on the <canvas> tag in index.html, commented below.
+  // <canvas id="data-space"></canvas>
+  var canvasForChart = document.getElementById("data-space").getContext("2d");
+  
+  var dataTestSetX = [];
+  var dataTestSetY = [];
+  for (i = 0; i < 21; i++) {
+    dataTestSetX.push(i);
+    dataTestSetY.push(i);
+  }
+
+
+
+  var myLineChart = new Chart(canvasForChart, {
+    type: "line",
+    data: {
+      labels: dataTestSetX,
+      datasets: [{
+        label: 'Simple Test Line',
+        data: dataTestSetY,
+        backgroundColor: 'magenta',
+        borderColor: 'orange',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
     }
   });
 });
