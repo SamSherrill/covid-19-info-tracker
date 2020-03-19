@@ -1,36 +1,41 @@
-$(document).ready(function() {
-  console.log('ready!');
+var keyWord = [
+  'covid-19-coronavirus',
+  'coronavirus-origin',
+  'covid-19-Testing',
+  'covid-19-symptoms',
+  'how-can-i-Prepare-for-coronavirus',
+  'hand-sanitizer-and-coronavirus'
+];
+var selectedKeyword = keyWord[0];
+var queryURLGlobal =
+  'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
+  selectedKeyword +
+  '&api-key=R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M';
 
-  // Display fake article title with link to DOM
-  // var newArticleDiv = $("<a>")
-  // newArticleDiv.attr("href", "https://www.google.com");
-  // newArticleDiv.html("<h4>Article Title</h4>")
+function getKeyword(index = 0) {
+  console.log(index, 'index');
+  console.log(keyWord[index]);
+  var updatedURL = buildQueryURL(keyWord[index]);
+  console.log(updatedURL);
+  displayData(updatedURL);
+}
 
-  // $("#article-space").append(newArticleDiv);
-
-  // connect to API & pull data
-  // for loop to post 3 articles
-  var keyWord = [
-    'covid-19-coronavirus',
-    'coronavirus-origin',
-    'covid-19-Testing',
-    'covid-19-symptoms',
-    'how-can-i-Prepare-for-coronavirus',
-    'hand-sanitizer-and-coronavirus'
-  ];
-  
-  var queryURL =
+function buildQueryURL(topic = '') {
+  return (
     'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
-    keyWord[0] +
-    '&api-key=R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M';
+    topic +
+    '&api-key=R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M'
+  );
+}
 
+function displayData(queryURL = selectedKeyword) {
+  console.log(queryURL);
   $.ajax({
     url: queryURL,
     method: 'GET'
   }).then(function(response) {
     console.log(response);
-    console.log(response.response.docs[0].snippet);
-
+    $('#article-space').html('');
     for (i = 0; i < 3; i++) {
       // will need to empty
       var newArticleLink = $('<a>');
@@ -46,4 +51,15 @@ $(document).ready(function() {
       $('#article-space').append(newArticleSnippet);
     }
   });
+}
+console.log(selectedKeyword);
+
+$(document).ready(function() {
+  console.log('ready!');
+
+  var queryURL =
+    'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
+    selectedKeyword +
+    '&api-key=R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M';
+  displayData(queryURL);
 });
