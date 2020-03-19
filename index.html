@@ -1,88 +1,147 @@
 <!DOCTYPE html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>COVID-19 Info Tracker</title>
-    <meta name="description" content="Information and relevant new stories regarding COVID-19.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>COVID-19 Info Tracker</title>
+  <meta
+    name="description"
+    content="Information and relevant new stories regarding COVID-19."
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="https://fonts.googleapis.com/css?family=News+Cycle&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=News+Cycle&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/styles/style.css" />
 </head>
 
 <body>
-    <header class="w3-container hero-image w3-padding-48">
-        <h2 class="header-color">Coronavirus Information Tracker</h2>
-        <p id="today"class="date-color"></p>
-    </header>
+  <!-- altered hero-image in style.css to give it a default background color (in case of load failure)
+  and centered image location to prevent weird behavior at high screen sizes; 
+  added benefit of the latter is that text stays in same position on image at all sizes, now -->
+  <header class="w3-container hero-image w3-center w3-padding-48 w3-text-white">
+    <!-- added an ID to give the title some text-shadow, making it pop on the multi-color background -->
+    <h2 class="header-color" id="text-outline">
+      Coronavirus Information Tracker
+    </h2>
+    <p id="today" class="date-color"></p>
+  </header>
 
-    <section class="w3-container">
-        <section id="main">
-        <div class="w3-row-padding">
-            <div class="w3-half info-box" id="news-block">
-                <h3 class="w3-border w3-margin text-color">News Stories</h3>
-                <!-- <hr> -->
-                <!-- This div is where we append articles pulled from the NYT API scraper -->
-                <div id="article-space"></div>
-            </div>
+  <!-- Main content below header/above charities contained within container block; 
+    two 'columns' then sit within a single row, one displaying our NYT Api scraper data...
+    and the other our CoronaTracker API data -->
+  <section class="w3-container">
+    <section id="main">
+      <div class="w3-row-padding">
+        <!-- changed w3-half to more specific breakpoints using columns; 
+        this way, news and graphs should be easily viewable on, say, an iPad -->
 
-            <div class="w3-half info-box">
-                <h3 class="w3-border w3-margin text-color">Graph Data</h3>
-            </div>
+        <div class="w3-col m12 l6 info-box" id="news-block">
+          <!-- please note that removing w3-margin from the h3s results in a cleaner header lineup with text; 
+        if current gap is intended, please ignore this comment -->
+          <h3 class="w3-border text-color">News Stories</h3>
+          <!-- <hr> -->
+          <!-- This div is where we append articles pulled from the NYT API scraper -->
+          <div id="article-space"></div>
         </div>
+
+        <div class="w3-col m12 l6 info-box">
+          <h3 class="w3-border text-color">Graph Data</h3>
+          <!-- This div is where we'll append the graphs that display tracker API data -->
+          <div id="data-space"></div>
+        </div>
+      </div>
     </section>
+  </section>
 
-    <section class="w3-container w3-center w3-text-blue">
-        <h1>Get Involved</h1>
-        <p>Ways to Make a Difference. Donate Today!</p>
-    </section>
-    <div class="bottom-margin">
-        <div class="w3-third">
-            <div class="w3-card w3-margin">
-                <img src="assets/images/charity-1_1000x683.jpg" style="width:100%">
-                <div class="w3-container">
-                    <p><a href="https://www.directrelief.org">Direct Relief</a></p>
-                </div>
-            </div>
+  <!-- Second container displays a 'mini-header' introducing the charities that we're supporting -->
+  <section class="w3-container w3-center w3-text-blue">
+    <h1>Get Involved</h1>
+    <p>Ways to Make a Difference. Donate Today!</p>
+  </section>
+
+  <!-- Third container (newly added to line up image borders with rest of page)
+displays three image cards within 3 columns, within which are the associated links in their own containers -->
+
+  <section class="w3-container bottom-margin">
+    <!-- similar to above, changed to add more specific breakpoints; 
+    here, images only shrink at ~932px, stacking at all sizes below; 
+    this avoids these really tiny images at ~650px -->
+    <!-- additionally, fixed pretty much all the links; 
+    as-is, they weren't actually targetting the assets folder, thus breaking the site -->
+    <div class="w3-col m12 l4">
+      <div class="w3-card w3-margin">
+        <img src="./assets/images/charity-1_1000x683.jpg" style="width:100%" />
+        <div class="w3-container">
+          <p><a href="https://www.directrelief.org">Direct Relief</a></p>
         </div>
-        
-        <div class="w3-third">
-            <div class="w3-card w3-margin">
-                <img src="assets/images/charity-2_1_1000x683.jpg" style="width:100%">
-                <div class="w3-container">
-                    <p><a href="https://disasterphilanthropy.org/disaster/2019-ncov-coronavirus/">Disaster Philanthropy</a>
-        
-        
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="w3-third bottom-margin">
-            <div class="w3-card w3-margin">
-                <img src="assets/images/charity-3_1000x683.jpg" style="width:100%">
-                <div class="w3-container">
-                    <p><a href="https://www.globalgiving.org/projects/coronavirus-relief-fund/">
-                            Global Giving</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="assets/scripts/scripts.js"></script>
-    <script src="assets/scripts/nyt-scraper.js"></script>
-    <script src="assets/scripts/virus-tracker.js"></script>
-
-    <div class="footer">
-        <p class="footer-text">Disclaimer:<br>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-        type and scrambled it to make a type specimen book.</p>
-        <p class="link-text"><a href="https://www.cdc.gov/">Centers for Disease Control and Prevention</a></p>
+    <div class="w3-col m12 l4">
+      <div class="w3-card w3-margin">
+        <img
+          src="./assets/images/charity-2_1_1000x683.jpg"
+          style="width:100%"
+        />
+        <div class="w3-container">
+          <p>
+            <a
+              href="https://disasterphilanthropy.org/disaster/2019-ncov-coronavirus/"
+              >Disaster Philanthropy</a
+            >
+          </p>
+        </div>
+      </div>
     </div>
+
+    <div class="w3-col m12 l4 bottom-margin">
+      <div class="w3-card w3-margin">
+        <img src="./assets/images/charity-3_1000x683.jpg" style="width:100%" />
+        <div class="w3-container">
+          <p>
+            <a
+              href="https://www.globalgiving.org/projects/coronavirus-relief-fund/"
+            >
+              Global Giving</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <p class="footer-text">
+      Disclaimer:<br />Lorem Ipsum has been the industry's standard dummy text
+      ever since the 1500s, when an unknown printer took a galley of type and
+      scrambled it to make a type specimen book.
+    </p>
+    <p class="link-text">
+      <a href="https://www.cdc.gov/"
+        >Centers for Disease Control and Prevention</a
+      >
+    </p>
+  </div>
+
+  <!-- jQuery ready and loaded for ajax and DOM manipulation -->
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- altered links to reflect addition of assets folder; 
+  scripts were commented out temporarily to avoid error 429 (Too Many Requests)
+  while testing the page - they can be re-enabled at any time, and I should have done so before pushing -->
+  <script src="./assets/scripts/scripts.js"></script>
+  <script src="./assets/scripts/nyt-scraper.js"></script>
+  <script src="./assets/scripts/virus-tracker.js"></script>
 </body>
-</html>
