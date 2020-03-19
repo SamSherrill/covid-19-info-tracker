@@ -46,14 +46,24 @@
         <div class="w3-col m12 l6 info-box" id="news-block">
           <!-- please note that removing w3-margin from the h3s results in a cleaner header lineup with text; 
         if current gap is intended, please ignore this comment -->
-          <h3 class="w3-border text-color">News Stories</h3>
+          <h3 class="text-color">News Stories</h3>
+          <div class="dropdown">
+            <button class="dropbtn">Coronavirus Topics</button>
+            <div class="dropdown-content">
+              <a href="#">COVID-19 Origin</a>
+              <a href="#">COVID-19 Testing</a>
+              <a href="#">COVID-19 Symptoms</a>
+              <a href="#">How to prepare for COVID-19</a>
+              <a href="#">Hand Sanitizer and COVID-19</a>
+            </div>
+          </div>
           <!-- <hr> -->
           <!-- This div is where we append articles pulled from the NYT API scraper -->
           <div id="article-space"></div>
         </div>
 
         <div class="w3-col m12 l6 info-box">
-          <h3 class="w3-border text-color">Graph Data</h3>
+          <h3 class="text-color">Graph Data</h3>
           <!-- This div is where we'll append the graphs that display tracker API data -->
           <div id="data-space"></div>
         </div>
@@ -62,9 +72,9 @@
   </section>
 
   <!-- Second container displays a 'mini-header' introducing the charities that we're supporting -->
-  <section class="w3-container w3-center w3-text-blue">
-    <h1>Get Involved</h1>
-    <p>Ways to Make a Difference. Donate Today!</p>
+  <section class="w3-container w3-center">
+    <h2 id="charity-heading">Get Involved</h2>
+    <p id="charity-describer">Ways to Make a Difference. Donate Today!</p>
   </section>
 
   <!-- Third container (newly added to line up image borders with rest of page)

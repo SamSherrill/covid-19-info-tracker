@@ -18,6 +18,7 @@ $(document).ready(function() {
     'how-can-i-Prepare-for-coronavirus',
     'hand-sanitizer-and-coronavirus'
   ];
+  
   var queryURL =
     'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
     keyWord[0] +
