@@ -9,7 +9,10 @@
     content="Information and relevant new stories regarding COVID-19."
   />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <script
+    src="https://kit.fontawesome.com/39e5edea6f.js"
+    crossorigin="anonymous"
+  ></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -50,13 +53,19 @@
         if current gap is intended, please ignore this comment -->
           <h3 class="text-color">News Stories</h3>
           <div class="dropdown">
-            <button class="dropbtn">Coronavirus Topics</button>
+            <button class="dropbtn">
+              Coronavirus Topics <i class="fas fa-sort-down"></i>
+            </button>
             <div class="dropdown-content">
               <a href="#" onclick="getKeyword(0)">COVID-19 Origin</a>
               <a href="#" onclick="getKeyword(1)">COVID-19 Testing</a>
               <a href="#" onclick="getKeyword(2)">COVID-19 Symptoms</a>
-              <a href="#" onclick="getKeyword(3)">How to prepare for COVID-19</a>
-              <a href="#" onclick="getKeyword(4)">Hand Sanitizer and COVID-19</a>
+              <a href="#" onclick="getKeyword(3)"
+                >How to prepare for COVID-19</a
+              >
+              <a href="#" onclick="getKeyword(4)"
+                >Hand Sanitizer and COVID-19</a
+              >
             </div>
           </div>
           <!-- <hr> -->
@@ -90,19 +99,33 @@ displays three image cards within 3 columns, within which are the associated lin
     as-is, they weren't actually targetting the assets folder, thus breaking the site -->
     <div class="w3-col m12 l4">
       <div class="w3-card w3-margin">
-        <img src="./assets/images/charity-1_1000x683.jpg" style="width:100%" />
+        <a href="https://www.directrelief.org">
+          <img
+            src="./assets/images/charity-1_1000x683.jpg"
+            style="width:100%"
+          />
+        </a>
         <div class="w3-container">
           <p><a href="https://www.directrelief.org">Direct Relief</a></p>
+          <p>
+            Direct Relief works in the U.S. and internationally to equip doctors
+            and nurses with life-saving medical resources to care for the
+            world's most vulnerable people.
+          </p>
         </div>
       </div>
     </div>
 
     <div class="w3-col m12 l4">
       <div class="w3-card w3-margin">
-        <img
-          src="./assets/images/charity-2_1_1000x683.jpg"
-          style="width:100%"
-        />
+        <a
+          href="https://disasterphilanthropy.org/disaster/2019-ncov-coronavirus/"
+        >
+          <img
+            src="./assets/images/charity-2_1_1000x683.jpg"
+            style="width:100%"
+          />
+        </a>
         <div class="w3-container">
           <p>
             <a
@@ -110,13 +133,25 @@ displays three image cards within 3 columns, within which are the associated lin
               >Disaster Philanthropy</a
             >
           </p>
+          <p>
+            The Center for Disaster Philanthropy is the only full-time national
+            resource dedicated to helping donors maximize their impact by making
+            more intentional disaster-related giving decisions.
+          </p>
         </div>
       </div>
     </div>
 
     <div class="w3-col m12 l4 bottom-margin">
       <div class="w3-card w3-margin">
-        <img src="./assets/images/charity-3_1000x683.jpg" style="width:100%" />
+        <a
+          href="https://www.globalgiving.org/projects/coronavirus-relief-fund/"
+        >
+          <img
+            src="./assets/images/charity-3_1000x683.jpg"
+            style="width:100%"
+          />
+        </a>
         <div class="w3-container">
           <p>
             <a
@@ -125,6 +160,11 @@ displays three image cards within 3 columns, within which are the associated lin
               Global Giving</a
             >
           </p>
+          <p>
+            GlobalGiving is a global crowdfunding community helping nonprofits
+            access the tools, training, and support they need to be more
+            effective and make our world a better place.
+          </p>
         </div>
       </div>
     </div>
@@ -132,14 +172,13 @@ displays three image cards within 3 columns, within which are the associated lin
 
   <div class="footer">
     <p class="footer-text">
-      Disclaimer:<br />Lorem Ipsum has been the industry's standard dummy text
-      ever since the 1500s, when an unknown printer took a galley of type and
-      scrambled it to make a type specimen book.
-    </p>
-    <p class="link-text">
+      Disclaimer:<br />This website was created as a educational project. Please
+      consult the
       <a href="https://www.cdc.gov/"
         >Centers for Disease Control and Prevention</a
       >
+      for the most up to date and accurate information on the COVID-19
+      coronavirus.
     </p>
   </div>
 
