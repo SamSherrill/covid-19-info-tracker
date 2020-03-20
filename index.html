@@ -57,15 +57,11 @@
               Coronavirus Topics <i class="fas fa-sort-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="#" onclick="getKeyword(0)">COVID-19 Origin</a>
-              <a href="#" onclick="getKeyword(1)">COVID-19 Testing</a>
-              <a href="#" onclick="getKeyword(2)">COVID-19 Symptoms</a>
-              <a href="#" onclick="getKeyword(3)"
-                >How to prepare for COVID-19</a
-              >
-              <a href="#" onclick="getKeyword(4)"
-                >Hand Sanitizer and COVID-19</a
-              >
+              <a onclick="getKeyword(0)">COVID-19 Origin</a>
+              <a onclick="getKeyword(1)">COVID-19 Testing</a>
+              <a onclick="getKeyword(2)">COVID-19 Symptoms</a>
+              <a onclick="getKeyword(3)">How to prepare for COVID-19</a>
+              <a onclick="getKeyword(4)">Hand Sanitizer and COVID-19</a>
             </div>
           </div>
           <!-- <hr> -->
@@ -75,6 +71,21 @@
 
         <div class="w3-col m12 l6 info-box">
           <h3 class="text-color">Graph Data</h3>
+          <div class="dropdown">
+            <button class="dropbtn">Country Select</button>
+            <div class="dropdown-content">
+              <a onclick="displayCountry(0)">United States</a>
+              <a onclick="displayCountry(1)">Iran</a>
+              <a onclick="displayCountry(2)">South Korea</a>
+              <a onclick="displayCountry(3)">Italy</a>
+              <a onclick="displayCountry(4)">United Kingdom</a>
+              <a onclick="displayCountry(5)">Germany</a>
+              <a onclick="displayCountry(6)">France</a>
+              <a onclick="displayCountry(7)">Spain</a>
+              <a onclick="displayCountry(8)">China</a>
+              <a onclick="displayCountry(9)">Japan</a>
+            </div>
+          </div>
           <!-- This div is where we'll append the graphs that display tracker API data -->
           <canvas id="data-space"></canvas>
         </div>
