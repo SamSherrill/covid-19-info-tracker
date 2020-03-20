@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   background-color: black;
   background-position-x: center;
+  background-size: cover;
 }
 .header-color {
   color: white;
@@ -19,7 +20,8 @@ h3 {
 }
 
 #text-outline {
-  text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000; 
+  text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 2px #000,
+    -1px -1px 2px #000;
 }
 
 .info-box {
@@ -40,8 +42,9 @@ h3 {
   font-size: 13px;
 }
 .bottom-margin {
-  margin-bottom: 500px;
+  margin-bottom: 80px;
 }
+
 .link-text {
   text-align: left;
   padding-left: 29px;
@@ -53,7 +56,7 @@ body {
 .date-color {
   text-align: right;
   color: white;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 /* Style The Dropdown Button */
@@ -80,7 +83,7 @@ body {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -95,7 +98,9 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -116,5 +121,5 @@ body {
 
 #charity-describer {
   padding: 0px;
-  line-height: 8px;;
+  line-height: 8px;
 }
