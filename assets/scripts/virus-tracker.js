@@ -13,40 +13,63 @@ $(document).ready(function () {
     "JP"
   ];
 
-  // Special Note: we'll want to try to minimize the use of ajax for the sake of performance;
-  // consider adding a submit button that actually runs the whole graph update, rather than dynamically
-  // re-generating the DOM on each button press.
-  // Currently, all 3 of these are running on page load, and they print based upon run speed, not order
+  // var countries = [{
+  //    countryCode: "US",
+  //    countryName: "USA",
+  //    countryColor: blue, // Would this need to be a "STRING"?
+  //  }, {
+  //    countryCode: "IR",
+  //    countryName: "Iran",
+  //    countryColor: dark green, // check color
+  //  }, {
+  //    countryCode: "KR",
+  //    countryName: "South Korea",
+  //    countryColor: purple, // check color
+  //  }, {
+  //    countryCode: "IT",
+  //    countryName: "Italy",
+  //    countryColor: green,
+  //  }, {
+  //    countryCode: "GB",
+  //    countryName: "United Kingdom",
+  //    countryColor: dark blue, // check color
+  //  }, {
+  //    countryCode: "DE",
+  //    countryName: "Germany",
+  //    countryColor: dark red, // check color
+  //  }, {
+  //    countryCode: "FR",
+  //    countryName: "France",
+  //    countryColor: light purple, // real color in styling?
+  //  }, {
+  //    countryCode: "ES",
+  //    countryName: "Spain",
+  //    countryColor: red,
+  //  }, {
+  //    countryCode: "CN",
+  //    countryName: "China",
+  //    countryColor: brown,
+  //  }, {
+  //    countryCode: "JP",
+  //    countryName: "Japan",
+  //    countryColor: black,
+  // }]
 
-  // var globalStatsQuery =
-  //   "https://cors-anywhere.herokuapp.com/https://thevirustracker.com/free-api?global=stats";
-  // $.ajax({
-  //     url: globalStatsQuery,
-  //     dataType: "json",
-  //     method: "GET"
-  //   })
-  //   .then(function (data) {
-  //     if (data.stat === "ok") {
-  //     }
-  //   })
-  //   .catch(function (err) {
-  //     console.error(err);
-  //   });
-
-  // var countryStatsQuery =
-  //   "https://cors-anywhere.herokuapp.com/https://thevirustracker.com/free-api?countryTotal=" +
-  //   countryCode[0];
-  // $.ajax({
-  //     url: countryStatsQuery,
-  //     dataType: "json",
-  //     method: "GET"
-  //   })
-  //   .then(function (data) {
-  //     var countryInfo = data.countrydata[0];
-  //   })
-  //   .catch(function (err) {
-  //     console.error(err);
-  //   });
+  // EXAMPLE FOR LOOP for running ajax for each country, then storing their data
+  // for (n=0; n<countryCode.length; n++) {
+  // ajax code run for each country
+  // Stores a new var which = an object with the following info:
+  // {
+  //   label: 'Country Name' OR 'Country Code',
+  //   data: y, (This is reported cases of COVID-19 for a given day)
+  //   fill: false, (we don't want to fill in the space under the line)
+  //   borderColor: 'orange', (We'll want to change the color for each country. 
+  //    --> Maybe make a new array with colors for each country? Maybe make the countryCode array an array of objects, with color being assigned to each country in there?
+  //    --> Honestly, it's probably easier to just have 2 arrays for hard coding, but future-ready code would probably mean an array of objects,
+  //    --> with each object being a different country. That country object would at minimum include the country code, and the color of that country's line.)
+  //   borderWidth: 1 (Same for each. Sam will play around with different widths.)
+  // }
+  // }
 
   var countryTimelineQuery =
     "https://cors-anywhere.herokuapp.com/https://thevirustracker.com/free-api?countryTimeline=" +
@@ -69,7 +92,7 @@ $(document).ready(function () {
         y.push(timelineData[Object.keys(timelineData)[i]].total_cases);
       }
 
-      lineGrapher(x, y); 
+      lineGrapher(x, y);
 
       // The example from chartjs.org as a var, but we don't use that var anywhere. Works fine with var deleted.
       // var virusLineGraph = new Chart(canvasForChart, {
@@ -89,6 +112,8 @@ $(document).ready(function () {
   // create dropdown
   // Dropdown selects correct country data from resource
 
+  // DRY - display all 10 majorly affected countries to graph
+
   // The example from chartjs.org as a var, but we don't use that var anywhere. Works fine with var deleted.
   // var virusLineGraph = new Chart(canvasForChart, {
   function lineGrapher(x, y) {
@@ -96,19 +121,22 @@ $(document).ready(function () {
       type: "line",
       data: {
         labels: x,
-        datasets: [{
-          label: 'Test 1',
-          data: y,
-          fill: false,
-          borderColor: 'orange',
-          borderWidth: 1
-        }, {
-          label: 'Test 2',
-          data: [10, 100, 200, 300, 400, 500, 600, 1000, 10000],
-          fill: false,
-          borderColor: 'magenta',
-          borderWidth: 1
-        }]
+        datasets: [
+
+          {
+            label: 'Test 1',
+            data: y,
+            fill: false,
+            borderColor: 'orange',
+            borderWidth: 5
+          }, {
+            label: 'Test 2',
+            data: [10, 100, 200, 300, 400, 500, 600, 1000, 10000],
+            fill: false,
+            borderColor: 'magenta',
+            borderWidth: 1
+          }
+        ]
       },
       options: {
         scales: {
@@ -122,6 +150,8 @@ $(document).ready(function () {
     });
   }
 });
+
+// Chart.JS example of 2 lines on the same graph:
 
 // var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 // 		var config = {
