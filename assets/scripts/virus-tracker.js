@@ -47,7 +47,7 @@ function displayCountry(currentCountry) {
 var canvasForChart = document.getElementById("data-space").getContext("2d");
 
 function lineGrapher(x, y, data) {
-  var countryTitle = data.countrytimelinedata[0].info.title;
+  var countryTitle = "Total Cases of the Coronavirus in " + data.countrytimelinedata[0].info.title;
   new Chart(canvasForChart, {
     type: "line",
     data: {
